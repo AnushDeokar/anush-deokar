@@ -1,9 +1,11 @@
 import Image from "next/image"
 
+import DesktopView from "./desktop-view"
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="h-24 w-24 bg-muted"></div>
+    <main className="h-screen p-8">
+      <DesktopView />
     </main>
   )
 }

@@ -12,7 +12,7 @@
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 0 0% 47%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 0 0% 97%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -40,7 +40,7 @@
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 240 0% 58%;
     --secondary-foreground: 210 40% 98%;
     --muted: 240 4% 11%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -66,4 +66,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.custom-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
