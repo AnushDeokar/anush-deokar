@@ -4,7 +4,7 @@ import DesktopView from "./desktop-view"
 
 export default function Home() {
   return (
-    <main className="h-screen p-8">
+    <main className="h-screen overflow-visible p-8">
       <DesktopView />
     </main>
   )
