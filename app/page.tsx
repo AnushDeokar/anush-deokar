@@ -1,5 +1,5 @@
-import DesktopView from "./desktop-view"
-import MobileView from "./mobile-view"
+import DesktopView from "../components/desktop-main"
+import MobileView from "../components/mobile-main"
 
 export default function Home() {
   return (

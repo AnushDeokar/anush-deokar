@@ -12,8 +12,9 @@ import { PROJECTS } from "@/lib/project"
 import { SOCIAL_LINKS } from "@/lib/social"
 import { TABS } from "@/lib/tabs"
 
-function DesktopView() {
+function DesktopMainComponent() {
   const [display, setDisplay] = useState<"WORK" | "CONTACT" | "RESUME">("WORK")
+
   return (
     <div className="hidden h-full overflow-visible pl-[6%] lg:grid lg:grid-cols-2">
       <div className="flex flex-col gap-4 py-12">
@@ -115,4 +116,4 @@ function DesktopView() {
   )
 }
 
-export default DesktopView
+export default DesktopMainComponent

@@ -5,10 +5,13 @@ import { ChevronRightIcon } from "@radix-ui/react-icons"
 import { SOCIAL_LINKS } from "@/lib/social"
 import { Button } from "@/components/ui/button"
 
-function MobileView() {
+import MobileNavbar from "./mobile-navbar"
+
+function MobileMainComponent() {
   return (
     <div className="flex h-full flex-col lg:hidden">
-      <div className="flex grow flex-col items-center justify-center text-center">
+      <MobileNavbar />
+      <div className="mb-[40px] flex grow flex-col items-center justify-center text-center">
         <Image
           src="/anime.png"
           alt="profile"
@@ -31,7 +34,7 @@ function MobileView() {
           Explore <ChevronRightIcon />
         </Button>
       </div>
-      <div className="flex w-full items-center justify-center gap-4">
+      <div className="mb-4 flex w-full items-center justify-center gap-4">
         {SOCIAL_LINKS.map((link, i) => (
           <a key={i} target="_blank" href={link.url} rel="noopener noreferrer">
             <div className="flex w-full items-center justify-between gap-20">
@@ -44,4 +47,4 @@ function MobileView() {
   )
 }
 
-export default MobileView
+export default MobileMainComponent
