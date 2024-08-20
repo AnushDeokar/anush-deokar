@@ -78,7 +78,7 @@ function DesktopView() {
           {PROJECTS.map((project, i) => (
             <div
               key={i}
-              className="relative transform overflow-visible rounded-md bg-muted p-[40px] transition-transform duration-300 hover:scale-[1.05] hover:!opacity-100 group-hover:opacity-70"
+              className="relative transform cursor-pointer overflow-visible rounded-md bg-muted p-[40px] transition-transform duration-300 hover:scale-[1.05] hover:!opacity-100 group-hover:opacity-70"
             >
               <div>
                 <h3 className="text-2xl font-bold">{project.name}</h3>

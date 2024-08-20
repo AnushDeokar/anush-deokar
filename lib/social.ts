@@ -1,9 +1,9 @@
 import {
+  EnvelopeClosedIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons"
-import { MailIcon } from "lucide-react"
 
 export const SOCIAL_LINKS = [
   {
@@ -19,7 +19,7 @@ export const SOCIAL_LINKS = [
   {
     name: "Mail",
     url: "mailto:deokaranush@gmail.com",
-    icon: MailIcon,
+    icon: EnvelopeClosedIcon,
   },
   {
     name: "Linkedin",
