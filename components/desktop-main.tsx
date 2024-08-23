@@ -20,7 +20,9 @@ function DesktopMainComponent() {
       <div className="flex flex-col gap-4 py-12">
         <div className="flex flex-col p-1">
           <h4 className="text-[16px] font-semibold">Hello, I&apos;m</h4>
-          <h2 className="text-[40px] font-bold">Anush Deokar.</h2>
+          <h2 className="text-[40px] font-bold xl:text-[60px]">
+            Anush Deokar.
+          </h2>
         </div>
         <p className="pr-20 text-[14px] leading-7 text-secondary">
           I&apos;m a <span className="text-primary">full stack developer</span>.
