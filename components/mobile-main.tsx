@@ -1,17 +1,16 @@
 import React from "react"
 import Image from "next/image"
-import { ChevronRightIcon } from "@radix-ui/react-icons"
 
 import { SOCIAL_LINKS } from "@/lib/social"
-import { Button } from "@/components/ui/button"
 
 import MobileNavbar from "./mobile-navbar"
+import ExploreButton from "./ui/explore-button"
 
 function MobileMainComponent() {
   return (
-    <div className="flex h-full flex-col lg:hidden">
+    <div className="flex h-full flex-col items-center lg:hidden">
       <MobileNavbar />
-      <div className="mb-[40px] flex grow flex-col items-center justify-center text-center">
+      <div className="mb-[40px] flex grow flex-col items-center justify-center p-8 text-center">
         <Image
           src="/anime.png"
           alt="profile"
@@ -27,12 +26,7 @@ function MobileMainComponent() {
           top-notch software solutions. I&apos;m proficient in{" "}
           <span className="text-primary">Nextjs, Nodejs and Golang</span>.
         </p>
-        <Button
-          variant="outline"
-          className="mt-4 flex items-center justify-center gap-2 px-6 py-4"
-        >
-          Explore <ChevronRightIcon />
-        </Button>
+        <ExploreButton />
       </div>
       <div className="mb-4 flex w-full items-center justify-center gap-4">
         {SOCIAL_LINKS.map((link, i) => (

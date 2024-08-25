@@ -11,7 +11,7 @@ function WorkPage() {
     <>
       <main className="flex h-full flex-col py-4 lg:hidden">
         <MobileNavbar />
-        <div className="my-4 flex flex-col gap-4 px-4">
+        <div className="my-4 flex flex-col gap-4 px-6">
           {PROJECTS.map((project, i) => (
             <div
               key={i}
@@ -48,7 +48,7 @@ function WorkPage() {
           ))}
         </div>
       </main>
-      <main className="h-screen overflow-visible p-8">
+      <main className="hidden h-screen overflow-visible p-8 lg:block">
         <DesktopMainComponent />
       </main>
     </>
