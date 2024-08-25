@@ -16,7 +16,7 @@ import Projects from "./projects"
 import Skills from "./skills-bar"
 
 function DesktopMainComponent() {
-  const [display, setDisplay] = useState<"WORK" | "CONTACT" | "RESUME">("WORK")
+  const [display, setDisplay] = useState<"WORK" | "CONTACT" | "SKILLS">("WORK")
 
   return (
     <div className="hidden h-full overflow-visible pl-[6%] lg:grid lg:grid-cols-2">

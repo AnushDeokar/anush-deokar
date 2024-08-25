@@ -1,6 +1,6 @@
 interface Itabs {
   index: string
-  name: "WORK" | "CONTACT" | "RESUME"
+  name: "WORK" | "CONTACT" | "SKILLS"
 }
 export const TABS: Itabs[] = [
   {
@@ -9,10 +9,10 @@ export const TABS: Itabs[] = [
   },
   {
     index: "01",
-    name: "RESUME",
+    name: "SKILLS",
   },
-  {
-    index: "02",
-    name: "CONTACT",
-  },
+  // {
+  //   index: "02",
+  //   name: "CONTACT",
+  // },
 ]
