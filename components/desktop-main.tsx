@@ -3,12 +3,9 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import {
-  CodeIcon,
-  EyeOpenIcon,
   OpenInNewWindowIcon,
 } from "@radix-ui/react-icons"
 
-import { PROJECTS } from "@/lib/project"
 import { SOCIAL_LINKS } from "@/lib/social"
 import { TABS } from "@/lib/tabs"
 
@@ -29,7 +26,7 @@ function DesktopMainComponent() {
         </div>
         <p className="pr-20 text-[14px] leading-7 text-secondary">
           I&apos;m a <span className="text-primary">full stack developer</span>.
-          I'm dedicated to crafting clean, scalable code and delivering
+          I&#39;m dedicated to crafting clean, scalable code and delivering
           top-notch software solutions. I&apos;m proficient in{" "}
           <span className="text-primary">Nextjs, Nodejs and Golang</span>.
         </p>

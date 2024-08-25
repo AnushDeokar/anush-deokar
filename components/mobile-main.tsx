@@ -22,7 +22,7 @@ function MobileMainComponent() {
         <h2 className="text-[24px] font-bold">Anush Deokar.</h2>
         <p className="max-w-[400px] text-[14px] leading-7 text-secondary">
           I&apos;m a <span className="text-primary">full stack developer</span>.
-          I'm dedicated to crafting clean, scalable code and delivering
+          I&#39;m dedicated to crafting clean, scalable code and delivering
           top-notch software solutions. I&apos;m proficient in{" "}
           <span className="text-primary">Nextjs, Nodejs and Golang</span>.
         </p>
