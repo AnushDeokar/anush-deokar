@@ -9,13 +9,16 @@ import {
 } from "@radix-ui/react-icons"
 
 import { Button } from "./ui/button"
+import Link from "next/link"
 
 function MobileNavbar() {
   const [open, setOpen] = useState(false)
   const router = useRouter()
   return (
     <div className="flex w-full items-center justify-between p-4 py-2">
-      <h3 className="text-lg font-bold">Anush.</h3>
+      <Link href="/">
+        <h3 className="text-lg font-bold">Anush.</h3>
+      </Link>
       <Button
         className="z-40 hover:bg-background"
         variant="ghost"
