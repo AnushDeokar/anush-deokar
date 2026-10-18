@@ -27,9 +27,11 @@ export default function Page() {
       }
     >
       <KeyResult label="The headline">
-        Five 32-token sliding-window layers plus one global layer (Gemma
-        3&apos;s 5:1 pattern) <em>beat</em> full attention by 0.02 nats, with{" "}
-        <span className="text-accent">5.8× less KV cache</span> at 4,096 tokens.
+        A hybrid with two global layers and four 32-token sliding-window layers{" "}
+        <em>beat</em> full attention by 0.02 nats across 3 seeds. Gemma 3&apos;s
+        5:1 pattern matched it with{" "}
+        <span className="text-accent">5.8× less KV cache</span> at 4,096 tokens
+        (1 seed).
       </KeyResult>
 
       <h2>The idea</h2>
@@ -212,7 +214,8 @@ export default function Page() {
             The hybrids keep the short-range advantage everywhere.
           </strong>{" "}
           The global layer covers what the local layers can&apos;t reach, so
-          they&apos;re about 0.02 better at every distance.
+          beyond the first few tokens they&apos;re about 0.02 better at every
+          distance.
         </li>
       </ul>
 
@@ -298,9 +301,12 @@ export default function Page() {
         Windows have a known failure mode. If you stream text past the training
         length and evict the oldest tokens from the cache, models can collapse,
         because they&apos;ve been using the very first tokens as a place to dump
-        spare attention. <strong>Part 3</strong> builds a streaming evaluator
-        and tests the fixes: StreamingLLM&apos;s kept &quot;sink&quot; tokens,
-        and gpt-oss&apos;s learned per-head sink.
+        spare attention. That&apos;s what the papers report.{" "}
+        <strong>Part 3</strong> builds a streaming evaluator and tests the
+        fixes: StreamingLLM&apos;s kept &quot;sink&quot; tokens, and
+        gpt-oss&apos;s learned per-head sink. My model didn&apos;t behave the
+        way the papers predict, and working out why turned out to be the
+        interesting part.
       </p>
       <hr />
       <p className="text-[15px] text-muted">

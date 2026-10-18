@@ -16,7 +16,8 @@ export const TINY_FRONTIER_SERIES = {
   parts: [
     {
       part: 1,
-      title: "Shrinking the frontier: rebuilding modern LLM tricks from scratch",
+      title:
+        "Shrinking the frontier: rebuilding modern LLM tricks from scratch",
       short: "Background",
       summary:
         "The question, the rules for fair comparisons, a 3.4M-parameter control model, and proving the code is right by matching Google's Gemma 3 270M.",
@@ -39,14 +40,11 @@ export const TINY_FRONTIER_SERIES = {
       title: "Attention sinks and streaming",
       short: "Attention sinks",
       summary:
-        "Why a windowed model breaks when you stream past its training length, and whether attention sinks fix it.",
+        "Streaming 16× past the training length with a 64-token cache. The predicted collapse didn't happen, and one controlled run showed why: sinks come from the training data format.",
+      href: "/writing/tiny-frontier/attention-sinks",
+      date: "October 2026",
+      readingTime: "10 min",
     },
-    {
-      part: 4,
-      title: "Sinks across scale",
-      short: "Sinks across scale",
-      summary:
-        "When sinks emerge during training, whether that depends on model size, and whether a learned sink allows a smaller window.",
-    },
+    // Part 4 ("Sinks across scale") is postponed: hidden until it's written.
   ] as SeriesPart[],
 }

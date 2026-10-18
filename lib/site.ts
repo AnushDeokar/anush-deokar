@@ -85,11 +85,12 @@ export const FEATURED_PROJECT = {
     {
       value: "5.8×",
       label:
-        "less KV cache at 4K tokens for a 5:1 local:global model that also beats full attention",
+        "less KV cache at 4K tokens for a 5:1 local:global model that matches a hybrid beating full attention",
     },
     {
-      value: "56",
-      label: "tests, 3 seeds per claim, and every run logged with its config",
+      value: "32 / 32",
+      label:
+        "buckets where evicting an attention sink hurt, after one change to the training data switched the sink on",
     },
   ],
 }

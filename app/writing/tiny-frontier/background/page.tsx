@@ -50,14 +50,17 @@ export default function Page() {
           last W tokens needs a much smaller KV cache (Part 2).
         </li>
         <li>
-          <strong>But windows break on long streams</strong> unless the model
-          has somewhere to &quot;park&quot; attention, which is what attention
-          sinks provide (Part 3).
+          <strong>
+            Windows only break on long streams if the model relies on a sink,
+          </strong>{" "}
+          a token it parks spare attention on (Part 3).
         </li>
         <li>
-          <strong>Sinks appear on their own during training,</strong> and a
-          learned sink may let you shrink the window further. Part 4 tests how
-          that changes with model size.
+          <strong>
+            Whether a sink forms depends on how the model was trained.
+          </strong>{" "}
+          Mine formed one only when every training chunk started with the same
+          token (Part 3).
         </li>
       </ol>
 
@@ -80,8 +83,10 @@ export default function Page() {
           context, token budget and eval slice stay fixed.
         </li>
         <li>
-          <strong>Three seeds</strong> (1337, 1338, 1339) for anything I draw a
-          conclusion from. Single-seed results are labelled as single-seed.
+          <strong>Seeds where they matter.</strong> The control gets three
+          (1337, 1338, 1339) to measure the noise. A variant gets extra seeds
+          when its gap to the control is ambiguous (0.01–0.03 nats). Single-seed
+          results are labelled as single-seed.
         </li>
         <li>
           <strong>Report the cost with every loss:</strong> parameters,
@@ -126,7 +131,10 @@ export default function Page() {
           ["Optimiser", "AdamW (0.9, 0.95), weight decay 0.1, clip 1.0"],
           ["Schedule", "200-step warmup, cosine to 10% of peak"],
           ["Budget", "50M tokens (6,103 steps of 32 × 256)"],
-          ["Tests", "56: RoPE, causality, KV-cache equivalence, GQA, …"],
+          [
+            "Tests",
+            "RoPE, causality, KV-cache equivalence, GQA, regression, …",
+          ],
         ]}
       />
 

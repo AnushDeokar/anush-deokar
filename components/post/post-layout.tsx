@@ -105,7 +105,11 @@ export function SeriesNav({
   return (
     <ol
       className={cn(
-        "grid grid-cols-2 gap-px overflow-hidden rounded-lg border bg-rule sm:grid-cols-4",
+        "grid gap-px overflow-hidden rounded-lg border bg-rule",
+        // static class names so Tailwind keeps them; no empty cells for 3 or 4 parts
+        TINY_FRONTIER_SERIES.parts.length === 3
+          ? "grid-cols-3"
+          : "grid-cols-2 sm:grid-cols-4",
         className
       )}
     >
