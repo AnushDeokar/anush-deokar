@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "Writing",
   description:
     "Notes and experiment write-ups on LLM architecture and AI engineering.",
+  alternates: {
+    canonical: "/writing",
+    types: { "text/plain": "/llms.txt" },
+  },
 }
 
 export default function WritingPage() {

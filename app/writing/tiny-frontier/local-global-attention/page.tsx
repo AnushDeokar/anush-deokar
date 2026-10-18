@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   title: "Tiny Frontier, Part 2: How small can attention windows get?",
   description:
     "Sliding-window attention and local:global layer patterns in a 3.4M-parameter model: what windows cost in loss, what they save in KV cache, and why one global layer is enough.",
+  alternates: {
+    canonical: "/writing/tiny-frontier/local-global-attention",
+    types: {
+      "text/markdown": "/writing/tiny-frontier/local-global-attention.md",
+    },
+  },
 }
 
 export default function Page() {

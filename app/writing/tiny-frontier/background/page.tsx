@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "Tiny Frontier, Part 1: Shrinking the frontier",
   description:
     "The question, the rules for fair comparisons, a 3.4M-parameter control model, and matching Google's Gemma 3 270M to 1e-4 in my own code.",
+  alternates: {
+    canonical: "/writing/tiny-frontier/background",
+    types: { "text/markdown": "/writing/tiny-frontier/background.md" },
+  },
 }
 
 export default function Page() {

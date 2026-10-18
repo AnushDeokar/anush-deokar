@@ -1,6 +1,8 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
+import { homeJsonLd } from "@/lib/llm"
 import {
   EARLIER_PROJECTS,
   EDUCATION,
@@ -10,35 +12,43 @@ import {
 } from "@/lib/site"
 import { TINY_FRONTIER_SERIES } from "@/lib/writing"
 import { AttentionMark } from "@/components/attention-mark"
+import { JsonLd } from "@/components/json-ld"
 import { Section } from "@/components/section"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    types: { "text/markdown": "/index.md", "text/plain": "/llms.txt" },
+  },
+}
 
 export default function Home() {
   const published = TINY_FRONTIER_SERIES.parts.filter((p) => p.href)
 
   return (
     <main className="mx-auto max-w-page px-5 sm:px-6">
+      <JsonLd data={homeJsonLd()} />
       {/* Intro */}
       <section className="pt-14 sm:pt-20">
         <p className="eyebrow mb-5">Full Stack + AI Engineer</p>
         <h1 className="font-serif text-[34px] font-normal leading-[1.15] tracking-tight sm:text-[44px]">
           I design and ship{" "}
-          <span className="italic text-accent">agentic systems</span>, from
-          the data layer to the product.
+          <span className="italic text-accent">agentic systems</span>, from the
+          data layer to the product.
         </h1>
         <div className="mt-7 max-w-[36rem] space-y-4 text-[16.5px] leading-relaxed text-muted">
           <p>
             I&apos;m a founding AI engineer at{" "}
-            <span className="text-foreground">Meridian</span>, where I build
-            the core AI platform end to end: RAG pipelines and MCP servers
+            <span className="text-foreground">Meridian</span>, where I build the
+            core AI platform end to end: RAG pipelines and MCP servers
             underneath, multi-agent flows in the middle, and the chat and voice
             agents people actually talk to on top. Before that I spent years as
             a frontend and full-stack engineer, so I own the whole path, from
             raw data to the interface.
           </p>
           <p>
-            Outside work I run experiments and build side projects: taking
-            ideas apart, testing them carefully, and writing up what I
-            learn.
+            Outside work I run experiments and build side projects: taking ideas
+            apart, testing them carefully, and writing up what I learn.
           </p>
         </div>
         <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[14px]">

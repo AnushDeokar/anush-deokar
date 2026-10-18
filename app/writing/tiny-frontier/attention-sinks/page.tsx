@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Tiny Frontier, Part 3: Attention sinks and streaming",
   description:
     "Streaming a 256-token model for 4,096 tokens with a 64-token cache. StreamingLLM predicts a collapse; mine didn't collapse, and one controlled run showed why: attention sinks come from the training data format.",
+  alternates: {
+    canonical: "/writing/tiny-frontier/attention-sinks",
+    types: { "text/markdown": "/writing/tiny-frontier/attention-sinks.md" },
+  },
 }
 
 export default function Page() {

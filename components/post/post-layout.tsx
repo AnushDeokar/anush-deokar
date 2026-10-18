@@ -1,7 +1,9 @@
 import Link from "next/link"
 
+import { postJsonLd } from "@/lib/llm"
 import { cn } from "@/lib/utils"
 import { TINY_FRONTIER_SERIES } from "@/lib/writing"
+import { JsonLd } from "@/components/json-ld"
 
 export function SeriesPostLayout({
   part,
@@ -19,6 +21,7 @@ export function SeriesPostLayout({
 
   return (
     <main className="mx-auto max-w-page px-5 sm:px-6">
+      <JsonLd data={postJsonLd(meta)} />
       <article>
         <header className="pt-12 sm:pt-16">
           <p className="eyebrow">
