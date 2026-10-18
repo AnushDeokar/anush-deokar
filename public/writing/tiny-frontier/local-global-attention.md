@@ -2,9 +2,9 @@
 
 > If each layer only looks at its last W tokens, the KV cache stops growing. How small can W get before the model notices, and what happens if you keep one layer that sees everything?
 
-[Tiny Frontier](https://anushdeokar.xyz/writing) · Part 2 of 3 · by Anush Deokar · October 2026 · 10 min read  
-Canonical: https://anushdeokar.xyz/writing/tiny-frontier/local-global-attention  
-More about the author: https://anushdeokar.xyz/llms.txt
+[Tiny Frontier](https://www.anushdeokar.xyz/writing) · Part 2 of 3 · by Anush Deokar · October 2026 · 10 min read  
+Canonical: https://www.anushdeokar.xyz/writing/tiny-frontier/local-global-attention  
+More about the author: https://www.anushdeokar.xyz/llms.txt
 
 > **The headline:** A hybrid with two global layers and four 32-token sliding-window layers *beat* full attention by 0.02 nats across 3 seeds. Gemma 3's 5:1 pattern matched it with 5.8× less KV cache at 4,096 tokens (1 seed).
 
@@ -38,7 +38,7 @@ Before running anything I wrote down predictions: W = 64 and 128 would match the
 
 *Lower is better. Seed noise on the control is 0.0087. KV is the fp32 cache for one sequence, measured during generation and equal to the formula to the byte.*
 
-![Scatter of validation loss against KV cache size at 4,096 tokens; the hybrid models sit lower and further left than the control](https://anushdeokar.xyz/writing/tiny-frontier/exp1_memory_tradeoff.png)
+![Scatter of validation loss against KV cache size at 4,096 tokens; the hybrid models sit lower and further left than the control](https://www.anushdeokar.xyz/writing/tiny-frontier/exp1_memory_tradeoff.png)
 
 *Memory against quality. Lower-left is better. The two hybrids sit below the control at a fraction of its memory.*
 
@@ -46,7 +46,7 @@ Before running anything I wrote down predictions: W = 64 and 128 would match the
 
 W = 128 matches the control. W = 64 is slightly but consistently worse: all three seeds landed above all three control seeds. W = 32 and W = 16 are clearly worse, far outside the noise.
 
-![Validation loss against window size for all-local models, falling towards the control band as the window grows; hybrids sit below the band](https://anushdeokar.xyz/writing/tiny-frontier/exp1_loss_vs_window.png)
+![Validation loss against window size for all-local models, falling towards the control band as the window grows; hybrids sit below the band](https://www.anushdeokar.xyz/writing/tiny-frontier/exp1_loss_vs_window.png)
 
 *All-local models approach the control (grey band) as W grows. The hybrids at W = 32 sit below it.*
 
@@ -71,7 +71,7 @@ At 4,096 tokens the global layer's cache dominates. `LLLLLG` at W = 16 would nee
 
 Averages hide the mechanism, so I split the validation loss by how much context each token had, and compared every variant to the control at each distance.
 
-![Loss difference to the control by position: all-local models are better at short context and worse at long context; hybrids are better everywhere](https://anushdeokar.xyz/writing/tiny-frontier/exp1_loss_by_position.png)
+![Loss difference to the control by position: all-local models are better at short context and worse at long context; hybrids are better everywhere](https://www.anushdeokar.xyz/writing/tiny-frontier/exp1_loss_by_position.png)
 
 *Loss minus control, by tokens of context. Below zero is better than the control.*
 
@@ -83,7 +83,7 @@ Averages hide the mechanism, so I split the validation loss by how much context 
 
 A fair suspicion: maybe hybrids only learn faster, and the control would catch up with more training. Tracking the gap through training:
 
-![Gap to the control over 50M training tokens; hybrids start far ahead, narrow, then hold steady near −0.02](https://anushdeokar.xyz/writing/tiny-frontier/exp1_gap_over_training.png)
+![Gap to the control over 50M training tokens; hybrids start far ahead, narrow, then hold steady near −0.02](https://www.anushdeokar.xyz/writing/tiny-frontier/exp1_gap_over_training.png)
 
 *Loss minus control over training. The hybrids' lead narrows over the first ~20M tokens, then holds.*
 

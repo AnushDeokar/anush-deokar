@@ -2,9 +2,9 @@
 
 > Modern LLMs use a handful of tricks to keep memory cheap. Papers make them sound obvious. I wanted to see them move, so I'm rebuilding them from scratch at tiny scale, for $0.
 
-[Tiny Frontier](https://anushdeokar.xyz/writing) · Part 1 of 3 · by Anush Deokar · September 2026 · 11 min read  
-Canonical: https://anushdeokar.xyz/writing/tiny-frontier/background  
-More about the author: https://anushdeokar.xyz/llms.txt
+[Tiny Frontier](https://www.anushdeokar.xyz/writing) · Part 1 of 3 · by Anush Deokar · September 2026 · 11 min read  
+Canonical: https://www.anushdeokar.xyz/writing/tiny-frontier/background  
+More about the author: https://www.anushdeokar.xyz/llms.txt
 
 Every model that handles long context has the same problem: the **KV cache**. To generate the next token, a transformer needs the keys and values of every token before it, and that cache grows with every token you add. Gemma 3, Mistral and gpt-oss all ship with tricks to keep it small: attention that only looks back a fixed number of tokens, a mix of cheap "local" and expensive "global" layers, and something called an attention sink.
 
@@ -48,7 +48,7 @@ The control is a Llama-style decoder written from scratch: pre-norm RMSNorm, cau
 
 An untuned baseline makes every comparison meaningless, so the first real experiment was a learning-rate sweep: five peak LRs, 10M tokens each.
 
-![Validation loss against peak learning rate, U-shaped with a minimum near 6e-3](https://anushdeokar.xyz/writing/tiny-frontier/lr_sweep.png)
+![Validation loss against peak learning rate, U-shaped with a minimum near 6e-3](https://www.anushdeokar.xyz/writing/tiny-frontier/lr_sweep.png)
 
 *Final validation loss after 10M tokens, one seed per learning rate.*
 
@@ -56,7 +56,7 @@ The curve is a U, and it's lopsided: halving the LR from 6e-3 cost 0.021 nats, d
 
 ### Three seeds, and the noise floor
 
-![Validation loss curves for three seeds of the control model, nearly overlapping](https://anushdeokar.xyz/writing/tiny-frontier/control_seeds.png)
+![Validation loss curves for three seeds of the control model, nearly overlapping](https://www.anushdeokar.xyz/writing/tiny-frontier/control_seeds.png)
 
 *The control model, three seeds, 50M tokens each (about 27 minutes per run).*
 
@@ -72,7 +72,7 @@ A tiny model producing nice stories doesn't prove the implementation is correct.
 
 Gemma 3 is the same kind of decoder with nine differences. I added each one as a config flag on the control model (not a forked model), guarded by a test that the trained control still gives exactly its recorded loss with every flag off.
 
-![Gemma 3 270M architecture diagram, with the parts that differ from Llama outlined](https://anushdeokar.xyz/writing/tiny-frontier/gemma3_architecture.svg)
+![Gemma 3 270M architecture diagram, with the parts that differ from Llama outlined](https://www.anushdeokar.xyz/writing/tiny-frontier/gemma3_architecture.svg)
 
 *Gemma 3 270M. Dashed outlines mark what differs from a Llama-style block: sandwich norms, GeGLU, QK-norm, multi-query attention, and a 5:1 local:global layer pattern.*
 

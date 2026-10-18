@@ -14,7 +14,7 @@
 import fs from "node:fs"
 import path from "node:path"
 
-const SITE_URL = "https://anushdeokar.xyz"
+const SITE_URL = "https://www.anushdeokar.xyz"
 const ROOT = process.cwd()
 const HTML_ROOT = path.join(ROOT, ".next/server/app")
 const PUBLIC = path.join(ROOT, "public")

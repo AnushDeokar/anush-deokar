@@ -2,9 +2,9 @@
 
 > A model trained on 256 tokens has to stream far past that with a small cache. StreamingLLM says evicting the first tokens breaks it. Mine didn't break, and finding out why was the most interesting result of the project.
 
-[Tiny Frontier](https://anushdeokar.xyz/writing) · Part 3 of 3 · by Anush Deokar · October 2026 · 10 min read  
-Canonical: https://anushdeokar.xyz/writing/tiny-frontier/attention-sinks  
-More about the author: https://anushdeokar.xyz/llms.txt
+[Tiny Frontier](https://www.anushdeokar.xyz/writing) · Part 3 of 3 · by Anush Deokar · October 2026 · 10 min read  
+Canonical: https://www.anushdeokar.xyz/writing/tiny-frontier/attention-sinks  
+More about the author: https://www.anushdeokar.xyz/llms.txt
 
 > **The headline:** Attention sinks come from the training data, not from attention itself. My model formed none until every training chunk started with the same token. Then it formed one immediately, and evicting it from the cache cost +0.035 nats in 32 of 32 buckets.
 
@@ -42,7 +42,7 @@ My predictions, written before running: (a) breaks past 256 tokens, (b) collapse
 
 ## Result 1: only the full cache breaks
 
-![Loss along a 4,096-token stream: all caches match up to 256 tokens, then the full cache climbs to about 4.7 while the rolling caches stay flat near 1.7](https://anushdeokar.xyz/writing/tiny-frontier/exp2_post_stream.png)
+![Loss along a 4,096-token stream: all caches match up to 256 tokens, then the full cache climbs to about 4.7 while the rolling caches stay flat near 1.7](https://www.anushdeokar.xyz/writing/tiny-frontier/exp2_post_stream.png)
 
 *Loss at each position of the stream (32-token moving average). The full cache breaks right after the training length; the rolling caches stay flat to 4,096.*
 
@@ -68,7 +68,7 @@ The cache isn't the issue: it's unit-tested, and the same harness caught case a 
 
 For every layer and head, I measured how much attention token 0 gets, and divided it by what it would get if attention were spread evenly. 1× means token 0 is treated like any other token, above 1× means it's a sink, and below 1× means it's being ignored.
 
-![Three heatmaps over 6 layers and 6 heads: the control's attention on token 0 is all blue, below even; the BOS-trained model is deep red, up to 33 times even; the learned-sink model sends 20 to 91 percent of layer 0's attention to nothing](https://anushdeokar.xyz/writing/tiny-frontier/exp2_post_attention.png)
+![Three heatmaps over 6 layers and 6 heads: the control's attention on token 0 is all blue, below even; the BOS-trained model is deep red, up to 33 times even; the learned-sink model sends 20 to 91 percent of layer 0's attention to nothing](https://www.anushdeokar.xyz/writing/tiny-frontier/exp2_post_attention.png)
 
 *Left: the control. Middle: the same model trained with <s> first (next section). Right: how much attention the learned-sink model sends to 'nothing'. Queries at positions 16–255 of normal 256-token chunks.*
 
@@ -86,7 +86,7 @@ I trained the control again with exactly one change: `<s>` at the start of every
 
 **And now evicting it hurts.** Because the two streams use the same model and the same text, I can subtract them bucket by bucket. Seed noise and text noise cancel out, leaving only the cost of evicting the first tokens:
 
-![Extra loss from evicting the first tokens, per 128-token bucket: about zero for the control, about +0.035 in every bucket for the BOS-trained model](https://anushdeokar.xyz/writing/tiny-frontier/exp2_post_eviction_cost.png)
+![Extra loss from evicting the first tokens, per 128-token bucket: about zero for the control, about +0.035 in every bucket for the BOS-trained model](https://www.anushdeokar.xyz/writing/tiny-frontier/exp2_post_eviction_cost.png)
 
 *Loss with a rolling cache minus loss with the first 4 tokens kept, for the same model on the same 32 streams.*
 

@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Anush Deokar",
   role: "Full Stack + AI Engineer",
-  url: "https://anushdeokar.xyz",
+  url: "https://www.anushdeokar.xyz",
   email: "deokaranush@gmail.com",
   description:
     "Anush Deokar is a Full Stack + AI Engineer, founding AI engineer at Meridian. RAG pipelines, MCP servers, agents, and small-scale LLM experiments.",
